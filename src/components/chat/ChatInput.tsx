@@ -401,7 +401,7 @@ export default function ChatInput({
                   "w-9 h-9 rounded-[4px] flex items-center justify-center border cursor-pointer transition-colors shrink-0 overflow-hidden",
                   isAudioEnabled
                     ? "text-purple-600 bg-purple-50/60 hover:bg-purple-100/80 border-purple-200"
-                    : "text-slate-400 bg-slate-50 border-black/10 opacity-50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-black/10 hover:border-black/15"
                 )}
                 title={isAudioEnabled ? "Audio enabled" : "Audio muted"}
               >
