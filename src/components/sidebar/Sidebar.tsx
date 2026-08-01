@@ -3,16 +3,16 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  FiPlus, 
-  FiSliders, 
-  FiSearch, 
-  FiDownload, 
+import {
+  FiPlus,
+  FiSliders,
+  FiSearch,
+  FiDownload,
   FiLogIn
 } from "react-icons/fi";
-import { LuTowerControl } from "react-icons/lu";
+import { LuFolderOpen } from "react-icons/lu";
+import { TbAdjustmentsDown } from "react-icons/tb";
 import { RiMessageAi3Line } from "react-icons/ri";
-import { HiOutlineFolderOpen } from "react-icons/hi2";
 import { PiCompassToolBold, PiCirclesThreePlus, PiUserCircleDuotone } from "react-icons/pi";
 import { FaLaptopCode } from "react-icons/fa";
 import { MdOutlineDraw, MdOutlineMarkChatUnread, MdOutlineMarkUnreadChatAlt } from "react-icons/md";
@@ -81,7 +81,7 @@ export default function Sidebar({
     <aside
       className={cn(
         "h-full bg-white border-r border-black/10 flex flex-col p-3 shrink-0 z-20 select-none font-sans transition-all duration-200",
-        isCollapsed ? "w-16 items-center" : "w-67.5"
+        isCollapsed ? "w-16 items-center" : "w-72"
       )}
     >
       {/* ── Top Header: Title/Logo + Search + GrCompare Toggle Icons ── */}
@@ -155,7 +155,7 @@ export default function Sidebar({
         {/* Navigation Items */}
         {[
           { id: "chats", label: "Chats", icon: MdOutlineMarkUnreadChatAlt },
-          { id: "projects", label: "Projects", icon: HiOutlineFolderOpen },
+          { id: "projects", label: "Projects", icon: LuFolderOpen },
           { id: "artifacts", label: "Artifacts", icon: PiCompassToolBold },
         ].map((nav) => {
           const Icon = nav.icon;
@@ -255,7 +255,7 @@ export default function Sidebar({
       {!isCollapsed && (
         <div className="flex items-center gap-1.5 px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-full">
           <VscRepoPinned className="w-3.5 h-3.5 text-slate-500" />
-          <span>Starred</span>
+          <span>All Pinned Chats</span>
         </div>
       )}
       <div className={cn("flex flex-col gap-0.5 overflow-y-auto max-h-28 pr-1 mb-2 w-full", isCollapsed && "items-center pr-0")}>
@@ -283,7 +283,7 @@ export default function Sidebar({
         )}
       </div>
 
-      {/* ── Recents Section Header & LuTowerControl Filter Icon ── */}
+      {/* ── Recents Section Header & TbAdjustmentsDown Filter Icon ── */}
       {!isCollapsed && (
         <div className="flex items-center justify-between px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-full">
           <span>Recents</span>
@@ -294,7 +294,7 @@ export default function Sidebar({
               title="Clear all recents"
               className="text-slate-400 hover:text-slate-600 border-0 bg-transparent cursor-pointer p-0.5 outline-none"
             >
-              <LuTowerControl className="w-3.5 h-3.5" />
+              <TbAdjustmentsDown className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
