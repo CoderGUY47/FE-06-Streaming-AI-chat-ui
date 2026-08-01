@@ -15,7 +15,7 @@ import { RiMessageAi3Line } from "react-icons/ri";
 import { HiOutlineFolderOpen } from "react-icons/hi2";
 import { PiCompassToolBold, PiCirclesThreePlus, PiUserCircleDuotone } from "react-icons/pi";
 import { FaLaptopCode } from "react-icons/fa";
-import { MdOutlineDraw } from "react-icons/md";
+import { MdOutlineDraw, MdOutlineMarkChatUnread, MdOutlineMarkUnreadChatAlt } from "react-icons/md";
 import { BiGhost, BiCrown } from "react-icons/bi";
 import { GrCompare } from "react-icons/gr";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -147,13 +147,13 @@ export default function Sidebar({
               : "w-full h-9 px-3 text-[13.5px] gap-2.5"
           )}
         >
-          <PiCirclesThreePlus className="w-4.5 h-4.5" />
+          <MdOutlineMarkChatUnread className="w-4.5 h-4.5" />
           {!isCollapsed && <span>New chat</span>}
         </button>
 
         {/* Navigation Items */}
         {[
-          { id: "chats", label: "Chats", icon: RiMessageAi3Line },
+          { id: "chats", label: "Chats", icon: MdOutlineMarkUnreadChatAlt },
           { id: "projects", label: "Projects", icon: HiOutlineFolderOpen },
           { id: "artifacts", label: "Artifacts", icon: PiCompassToolBold },
         ].map((nav) => {

@@ -61,7 +61,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
         {/* Bubble */}
         <div
           className={cn(
-            "px-4 py-3 rounded-md text-[14.5px] leading-relaxed border",
+            "px-3.5 py-2 rounded-md text-[14.5px] leading-relaxed border",
             isUser
               ? "bg-slate-900 text-white border-black/15"
               : "bg-white border-black/10 text-slate-800"
@@ -75,10 +75,10 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
         </div>
 
         {/* Action bar */}
-        <div className={cn("flex items-center gap-0.5 w-full", isUser ? "justify-end" : "justify-start")}>
+        <div className={cn("flex items-center gap-1 w-full", isUser ? "justify-end" : "justify-start")}>
           <button
             className={cn(
-              "flex items-center gap-1.5 px-2 py-1 rounded-[4px] text-[11.5px] font-medium transition-colors border cursor-pointer",
+              "flex items-center gap-1.5 px-2 py-0.5 rounded-[4px] text-[11.5px] font-medium transition-colors border cursor-pointer",
               copied
                 ? "text-slate-900 bg-slate-100 border-black/15"
                 : "text-slate-500 hover:text-slate-800 hover:bg-slate-50 border-transparent hover:border-black/10"
@@ -104,7 +104,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
             <>
               <button
                 className={cn(
-                  "w-7 h-7 rounded-[4px] flex items-center justify-center transition-colors border cursor-pointer",
+                  "w-6.5 h-6.5 rounded-[4px] flex items-center justify-center transition-colors border cursor-pointer",
                   likeState === "liked"
                     ? "text-slate-900 bg-slate-100 border-black/15"
                     : "text-slate-500 hover:text-slate-800 hover:bg-slate-50 border-transparent hover:border-black/10"
@@ -118,7 +118,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
 
               <button
                 className={cn(
-                  "w-7 h-7 rounded-[4px] flex items-center justify-center transition-colors border cursor-pointer",
+                  "w-6.5 h-6.5 rounded-[4px] flex items-center justify-center transition-colors border cursor-pointer",
                   likeState === "disliked"
                     ? "text-red-600 bg-red-50 border-red-200"
                     : "text-slate-500 hover:text-slate-800 hover:bg-slate-50 border-transparent hover:border-black/10"
@@ -131,6 +131,11 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
               </button>
             </>
           )}
+
+          {/* Region-based Local Time */}
+          <span className="text-[10.5px] text-slate-400 font-normal ml-1 select-none">
+            {new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+          </span>
         </div>
       </div>
     </div>

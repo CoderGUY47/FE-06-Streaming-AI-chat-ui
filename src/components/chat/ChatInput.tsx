@@ -13,7 +13,8 @@ import { PiCirclesThreePlus } from "react-icons/pi";
 import { TbUnlink } from "react-icons/tb";
 import { RiGalleryLine } from "react-icons/ri";
 import { LuAudioLines } from "react-icons/lu";
-import { LiaMicrophoneSolid, LiaMicrophoneSlashSolid } from "react-icons/lia";
+import { LiaMicrophoneSolid, LiaMicrophoneSlashSolid, LiaAirbnb } from "react-icons/lia";
+import { HiOutlineInboxArrowDown } from "react-icons/hi2";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { cn } from "@/lib/utils";
 
@@ -194,7 +195,7 @@ export default function ChatInput({
 
       <form onSubmit={onSubmit} className="block w-full">
         {/* Main Input Box: border-black/10 normally, border-black/15 when focused */}
-        <div className="w-full bg-white border border-black/10 focus-within:border-black/15 rounded-md p-4 flex flex-col gap-3 relative transition-colors">
+        <div className="w-full bg-white border border-black/10 focus-within:border-black/15 rounded-md p-3 flex flex-col gap-2.5 relative transition-colors">
           {/* Active Voice Recording Indicator */}
           {isRecordingVoice && (
             <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-700 rounded-[4px] text-xs font-semibold border border-purple-200">
@@ -220,7 +221,7 @@ export default function ChatInput({
           <textarea
             ref={textareaRef}
             id="chat-input"
-            className="w-full bg-transparent border-0 outline-none resize-none text-[15px] text-slate-800 placeholder-slate-400 min-h-12 max-h-50 leading-relaxed p-0"
+            className="w-full bg-transparent border-0 outline-none resize-none text-[15px] text-slate-800 placeholder-slate-400 min-h-10 max-h-50 leading-relaxed p-0"
             placeholder="Type / for skills or ask Oxie anything…"
             value={input}
             onChange={(e) => onInputChange(e.target.value)}
@@ -232,15 +233,25 @@ export default function ChatInput({
           />
 
           <div className="flex items-center justify-between pt-1 gap-2 border-t border-black/10">
-            {/* Left: Plus attachment button with PiCirclesThreePlus icon */}
-            <div className="flex items-center gap-2">
+            {/* Left: LiaAirbnb icon + Resources button */}
+            <div className="flex items-center gap-1.5">
               <button
                 type="button"
                 onClick={handleAttachmentClick}
-                title="Add attachment or image"
+                title="Airbnb option"
                 className="w-7 h-7 rounded-[4px] flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-black/10 hover:border-black/15 cursor-pointer transition-colors shrink-0"
               >
-                <PiCirclesThreePlus className="w-4 h-4 text-slate-700" />
+                <LiaAirbnb className="w-4.5 h-4.5 text-slate-700" />
+              </button>
+
+              <button
+                type="button"
+                onClick={handleAttachmentClick}
+                title="Resources"
+                className="h-7 px-2 rounded-[4px] flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-black/10 hover:border-black/15 cursor-pointer transition-colors shrink-0"
+              >
+                <HiOutlineInboxArrowDown className="w-3.5 h-3.5 text-slate-700" />
+                <span>Resources</span>
               </button>
 
               {/* Code/Text files badge with TbUnlink icon */}
