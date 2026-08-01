@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { FiBookmark, FiEdit3 } from "react-icons/fi";
-import { RiMessageAi3Line } from "react-icons/ri";
+import { MdOutlineMarkUnreadChatAlt } from "react-icons/md";
 import { CgTrashEmpty } from "react-icons/cg";
 import { UIMessage } from "ai";
 import { cn } from "@/lib/utils";
@@ -60,7 +60,7 @@ export default function ConversationItem({
         {isPinned ? (
           <FiBookmark className="w-4 h-4 text-slate-900 fill-slate-900/20" />
         ) : (
-          <RiMessageAi3Line className="w-4 h-4" />
+          <MdOutlineMarkUnreadChatAlt className="w-4 h-4" />
         )}
       </button>
     );
@@ -81,7 +81,7 @@ export default function ConversationItem({
           {isPinned ? (
             <FiBookmark className="w-3.5 h-3.5 text-black/85 fill-black/20" />
           ) : (
-            <RiMessageAi3Line className={cn("w-3.5 h-3.5", isActive ? "text-black/85" : "text-black/45 group-hover:text-black/75")} />
+            <MdOutlineMarkUnreadChatAlt className={cn("w-3.5 h-3.5", isActive ? "text-black/85" : "text-black/45 group-hover:text-black/75")} />
           )}
         </span>
 
