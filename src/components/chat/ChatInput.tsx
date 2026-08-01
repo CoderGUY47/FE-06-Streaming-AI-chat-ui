@@ -97,7 +97,7 @@ export default function ChatInput({
   // State for working Voice & Audio features & File attachments
   const [selectedModel, setSelectedModel] = useState<ModelItem>(MODELS[0]);
   const [isRecordingVoice, setIsRecordingVoice] = useState(false);
-  const [isAudioEnabled, setIsAudioEnabled] = useState(true);
+  const [isAudioEnabled, setIsAudioEnabled] = useState(false);
   const [attachedFiles, setAttachedFiles] = useState<AttachedFile[]>([]);
 
   // Compute button state
