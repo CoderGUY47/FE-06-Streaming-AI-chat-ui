@@ -197,14 +197,20 @@ export default function ChatInput({
         <div className="w-full bg-white border border-black/10 focus-within:border-black/15 rounded-md p-4 flex flex-col gap-3 relative transition-colors">
           {/* Active Voice Recording Indicator */}
           {isRecordingVoice && (
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 text-red-600 rounded-[4px] text-xs font-semibold border border-red-200">
-              <span className="animate-pulse">
-                🔴 Listening to voice prompt…
-              </span>
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-700 rounded-[4px] text-xs font-semibold border border-purple-200">
+              <div className="w-6 h-6 flex items-center justify-center shrink-0">
+                <DotLottieReact
+                  src="/animations/audio-recording.lottie"
+                  loop
+                  autoplay
+                  style={{ width: 24, height: 24 }}
+                />
+              </div>
+              <span>Listening to voice prompt…</span>
               <button
                 type="button"
                 onClick={() => setIsRecordingVoice(false)}
-                className="ml-auto bg-transparent border-0 text-red-600 cursor-pointer font-bold text-xs hover:underline"
+                className="ml-auto bg-transparent border-0 text-purple-700 cursor-pointer font-bold text-xs hover:underline"
               >
                 Stop
               </button>
@@ -363,20 +369,25 @@ export default function ChatInput({
                 )}
               </div>
 
-              {/* Voice Mic Button — 3-state: idle → recording → slash */}
+              {/* Voice Mic Button — 3-state: idle → recording (purple lottie) → slash */}
               <button
                 type="button"
                 onClick={handleVoiceToggle}
                 className={cn(
-                  "w-9 h-9 rounded-[4px] flex items-center justify-center border cursor-pointer transition-colors shrink-0",
+                  "w-9 h-9 rounded-[4px] flex items-center justify-center border cursor-pointer transition-colors shrink-0 overflow-hidden",
                   isRecordingVoice
-                    ? "text-red-600 bg-red-50 border-red-200 hover:bg-red-100"
+                    ? "bg-purple-50 border-purple-300 hover:bg-purple-100"
                     : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-black/10 hover:border-black/15"
                 )}
                 title={isRecordingVoice ? "Stop recording" : "Voice input"}
               >
                 {isRecordingVoice ? (
-                  <LiaMicrophoneSlashSolid className="w-5 h-5" />
+                  <DotLottieReact
+                    src="/animations/audio-recording.lottie"
+                    loop
+                    autoplay
+                    style={{ width: 28, height: 28 }}
+                  />
                 ) : (
                   <LiaMicrophoneSolid className="w-5 h-5" />
                 )}
@@ -387,14 +398,23 @@ export default function ChatInput({
                 type="button"
                 onClick={handleAudioToggle}
                 className={cn(
-                  "w-9 h-9 rounded-[4px] flex items-center justify-center border cursor-pointer transition-colors shrink-0",
+                  "w-9 h-9 rounded-[4px] flex items-center justify-center border cursor-pointer transition-colors shrink-0 overflow-hidden",
                   isAudioEnabled
-                    ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-black/10 hover:border-black/15"
+                    ? "text-purple-600 bg-purple-50/60 hover:bg-purple-100/80 border-purple-200"
                     : "text-slate-400 bg-slate-50 border-black/10 opacity-50"
                 )}
                 title={isAudioEnabled ? "Audio enabled" : "Audio muted"}
               >
-                <LuAudioLines className="w-5 h-5" />
+                {isAudioEnabled ? (
+                  <DotLottieReact
+                    src="/animations/audio-recording.lottie"
+                    loop
+                    autoplay
+                    style={{ width: 24, height: 24 }}
+                  />
+                ) : (
+                  <LuAudioLines className="w-5 h-5" />
+                )}
               </button>
 
               {/* Send / Stop Button */}
