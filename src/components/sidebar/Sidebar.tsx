@@ -18,6 +18,7 @@ import { FaLaptopCode } from "react-icons/fa";
 import { MdOutlineDraw, MdOutlineMarkChatUnread, MdOutlineMarkUnreadChatAlt } from "react-icons/md";
 import { BiGhost, BiCrown } from "react-icons/bi";
 import { GrCompare } from "react-icons/gr";
+import { VscRepoPinned } from "react-icons/vsc";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import ConversationItem, { Conversation } from "./ConversationItem";
@@ -252,8 +253,9 @@ export default function Sidebar({
 
       {/* ── Starred Section ── */}
       {!isCollapsed && (
-        <div className="px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-full">
-          Starred
+        <div className="flex items-center gap-1.5 px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider w-full">
+          <VscRepoPinned className="w-3.5 h-3.5 text-slate-500" />
+          <span>Starred</span>
         </div>
       )}
       <div className={cn("flex flex-col gap-0.5 overflow-y-auto max-h-28 pr-1 mb-2 w-full", isCollapsed && "items-center pr-0")}>

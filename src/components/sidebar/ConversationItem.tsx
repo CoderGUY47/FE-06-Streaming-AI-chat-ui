@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { FiBookmark, FiEdit3 } from "react-icons/fi";
+import { FiEdit3 } from "react-icons/fi";
 import { MdOutlineMarkUnreadChatAlt } from "react-icons/md";
+import { VscPinned, VscUnpin } from "react-icons/vsc";
 import { CgTrashEmpty } from "react-icons/cg";
 import { UIMessage } from "ai";
 import { cn } from "@/lib/utils";
@@ -58,7 +59,7 @@ export default function ConversationItem({
         )}
       >
         {isPinned ? (
-          <FiBookmark className="w-4 h-4 text-slate-900 fill-slate-900/20" />
+          <VscPinned className="w-4 h-4 text-slate-900" />
         ) : (
           <MdOutlineMarkUnreadChatAlt className="w-4 h-4" />
         )}
@@ -79,7 +80,7 @@ export default function ConversationItem({
       <div className="flex items-center gap-2 min-w-0 flex-1 pr-1 border-0">
         <span className="flex items-center shrink-0">
           {isPinned ? (
-            <FiBookmark className="w-3.5 h-3.5 text-black/85 fill-black/20" />
+            <VscPinned className="w-3.5 h-3.5 text-black/85" />
           ) : (
             <MdOutlineMarkUnreadChatAlt className={cn("w-3.5 h-3.5", isActive ? "text-black/85" : "text-black/45 group-hover:text-black/75")} />
           )}
@@ -131,7 +132,11 @@ export default function ConversationItem({
                 isPinned && "text-black/85"
               )}
             >
-              <FiBookmark className="w-3 h-3" />
+              {isPinned ? (
+                <VscUnpin className="w-3.5 h-3.5" />
+              ) : (
+                <VscPinned className="w-3.5 h-3.5" />
+              )}
             </button>
           )}
 
