@@ -10,14 +10,10 @@ export default function ThinkingIndicator() {
       aria-label="AI is thinking"
       aria-live="polite"
     >
-      {/* Assistant logo without bg */}
-      <Image
-        src="/images/oxie.png"
-        alt="Oxie AI Logo"
-        width={20}
-        height={20}
-        className="object-contain shrink-0 mt-2 select-none"
-      />
+      {/* Oxie avatar with bg — matches MessageBubble */}
+      <div className="w-8 h-8 rounded-full bg-white border border-black/10 flex items-center justify-center shrink-0 mt-1 select-none shadow-sm">
+        <Image src="/images/oxie.png" alt="Oxie AI" width={24} height={24} className="object-contain" />
+      </div>
 
       {/* Lottie loader + label */}
       <div className="flex items-center gap-2 px-4 py-3 bg-white border border-black/10 rounded-md">

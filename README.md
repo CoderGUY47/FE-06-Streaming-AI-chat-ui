@@ -39,6 +39,33 @@ Built with Next.js 16, React 19, Vercel AI SDK, and Framer Motion.
 
 ---
 
+## ⚙️ How It Works
+
+Oxie is built on a **streaming-first architecture** — every response flows in real-time from AI to your browser without waiting for a full completion.
+
+```
+┌─────────────┐     ┌──────────────────┐     ┌──────────────────────┐     ┌─────────────────┐
+│  User types │────▶│  Next.js API     │────▶│  Anthropic Claude    │────▶│  Token stream   │
+│  a message  │     │  Route (/api/*)  │     │  Agent SDK           │     │  to the browser │
+└─────────────┘     └──────────────────┘     └──────────────────────┘     └─────────────────┘
+```
+
+### Step-by-step flow
+
+1. **User sends a message** — The `ChatInput` component captures the prompt and calls `useChat()` from the Vercel AI SDK.
+
+2. **API route handles the request** — The Next.js API route (`/api/chat`) receives the message history and forwards it to the Anthropic Claude Agent SDK for processing.
+
+3. **Claude streams the response** — Claude generates a response token-by-token and sends it back as a ReadableStream via the Vercel AI SDK's `streamText()` helper.
+
+4. **UI renders in real-time** — The `MessageBubble` and `StreamingMarkdown` components progressively render text, code blocks, and rich markdown as tokens arrive — giving the user instant visual feedback with no waiting.
+
+5. **Voice & Audio controls** — Users can toggle microphone input (`LiaMicrophoneSolid`) and audio output (`LuAudioLines`) directly from the chat toolbar. The mic switches to a slash icon (`LiaMicrophoneSlashSolid`) when active.
+
+6. **Conversation persistence** — All chats are saved to `localStorage` so conversations survive page refreshes. The sidebar lists all sessions with rename, pin, and delete support.
+
+---
+
 ## 🖥️ App Pages
 
 | Route | Description |

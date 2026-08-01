@@ -2,10 +2,8 @@
 
 import { useRef, useEffect, KeyboardEvent, useCallback, useState } from "react";
 import {
-  FiMic,
   FiChevronDown,
   FiSend,
-  FiSquare,
   FiCheck,
   FiZap,
   FiCpu,
@@ -14,7 +12,9 @@ import {
 import { PiCirclesThreePlus } from "react-icons/pi";
 import { TbUnlink } from "react-icons/tb";
 import { RiGalleryLine } from "react-icons/ri";
-import { BsSoundwave } from "react-icons/bs";
+import { LuAudioLines } from "react-icons/lu";
+import { LiaMicrophoneSolid, LiaMicrophoneSlashSolid } from "react-icons/lia";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { cn } from "@/lib/utils";
 
 type ButtonState = "idle" | "composing" | "streaming" | "stopped" | "error";
@@ -363,30 +363,38 @@ export default function ChatInput({
                 )}
               </div>
 
-              {/* Voice Mic Button */}
+              {/* Voice Mic Button — 3-state: idle → recording → slash */}
               <button
                 type="button"
                 onClick={handleVoiceToggle}
                 className={cn(
-                  "w-7 h-7 rounded-[4px] flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-black/10 hover:border-black/15 cursor-pointer transition-colors shrink-0",
-                  isRecordingVoice && "text-red-600 bg-red-50 border-red-200 hover:bg-red-100"
+                  "w-9 h-9 rounded-[4px] flex items-center justify-center border cursor-pointer transition-colors shrink-0",
+                  isRecordingVoice
+                    ? "text-red-600 bg-red-50 border-red-200 hover:bg-red-100"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-black/10 hover:border-black/15"
                 )}
                 title={isRecordingVoice ? "Stop recording" : "Voice input"}
               >
-                <FiMic className="w-3.5 h-3.5" />
+                {isRecordingVoice ? (
+                  <LiaMicrophoneSlashSolid className="w-5 h-5" />
+                ) : (
+                  <LiaMicrophoneSolid className="w-5 h-5" />
+                )}
               </button>
 
-              {/* Audio Visualizer Button */}
+              {/* Audio Lines Toggle Button */}
               <button
                 type="button"
                 onClick={handleAudioToggle}
                 className={cn(
-                  "w-7 h-7 rounded-[4px] flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-black/10 hover:border-black/15 cursor-pointer transition-colors shrink-0",
-                  !isAudioEnabled && "opacity-40"
+                  "w-9 h-9 rounded-[4px] flex items-center justify-center border cursor-pointer transition-colors shrink-0",
+                  isAudioEnabled
+                    ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-black/10 hover:border-black/15"
+                    : "text-slate-400 bg-slate-50 border-black/10 opacity-50"
                 )}
-                title={isAudioEnabled ? "Audio enabled" : "Mute audio"}
+                title={isAudioEnabled ? "Audio enabled" : "Audio muted"}
               >
-                <BsSoundwave className="w-3.5 h-3.5" />
+                <LuAudioLines className="w-5 h-5" />
               </button>
 
               {/* Send / Stop Button */}
@@ -394,10 +402,15 @@ export default function ChatInput({
                 <button
                   type="button"
                   onClick={onStop}
-                  className="w-7 h-7 rounded-[4px] flex items-center justify-center bg-red-600 text-white hover:bg-red-700 border border-red-700 cursor-pointer transition-colors shrink-0"
+                  className="w-9 h-9 rounded-[4px] flex items-center justify-center bg-red-600 hover:bg-red-700 border border-red-700 cursor-pointer transition-colors shrink-0 overflow-hidden"
                   title="Stop generation"
                 >
-                  <FiSquare className="w-3 h-3" />
+                  <DotLottieReact
+                    src="/animations/loading.lottie"
+                    loop
+                    autoplay
+                    style={{ width: 28, height: 28, filter: "brightness(0) invert(1)" }}
+                  />
                 </button>
               ) : (
                 <button
@@ -405,14 +418,14 @@ export default function ChatInput({
                   onClick={handleButtonClick}
                   disabled={buttonState === "idle"}
                   className={cn(
-                    "w-7 h-7 rounded-[4px] flex items-center justify-center border transition-colors shrink-0",
+                    "w-9 h-9 rounded-[4px] flex items-center justify-center border transition-colors shrink-0",
                     buttonState === "composing"
                       ? "bg-slate-900 text-white hover:bg-slate-800 border-black/15 cursor-pointer"
                       : "bg-slate-100 text-slate-400 border-black/10 cursor-not-allowed"
                   )}
                   title="Send message"
                 >
-                  <FiSend className="w-3.5 h-3.5" />
+                  <FiSend className="w-4 h-4" />
                 </button>
               )}
             </div>

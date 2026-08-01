@@ -45,11 +45,15 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
 
   return (
     <div className={cn("flex gap-3 w-full", isUser ? "flex-row-reverse" : "flex-row")}>
-      {/* Icon without bg */}
+      {/* Avatar with bg */}
       {isUser ? (
-        <span className="text-xs font-extrabold text-slate-800 shrink-0 mt-2 select-none">OX</span>
+        <span className="w-8 h-8 rounded-full bg-slate-900 text-white text-[11px] font-extrabold flex items-center justify-center shrink-0 mt-1 select-none border border-black/15">
+          OX
+        </span>
       ) : (
-        <Image src="/images/oxie.png" alt="Oxie AI Logo" width={20} height={20} className="object-contain shrink-0 mt-2 select-none" />
+        <div className="w-8 h-8 rounded-full bg-white border border-black/10 flex items-center justify-center shrink-0 mt-1 select-none shadow-sm">
+          <Image src="/images/oxie.png" alt="Oxie AI" width={24} height={24} className="object-contain" />
+        </div>
       )}
 
       {/* Content column */}
