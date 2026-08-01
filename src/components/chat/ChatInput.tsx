@@ -422,7 +422,7 @@ export default function ChatInput({
                 <button
                   type="button"
                   onClick={onStop}
-                  className="w-9 h-9 rounded-[4px] flex items-center justify-center bg-red-600 hover:bg-red-700 border border-red-700 cursor-pointer transition-colors shrink-0 overflow-hidden"
+                  className="w-9 h-9 rounded-[4px] flex items-center justify-center bg-slate-900 hover:bg-slate-800 border border-slate-900 cursor-pointer transition-colors shrink-0 overflow-hidden"
                   title="Stop generation"
                 >
                   <DotLottieReact
