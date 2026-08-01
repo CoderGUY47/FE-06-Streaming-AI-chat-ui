@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-  title: "Oxie — Your AI Assistant",
+  title: "Oxie - AI Assistant",
   description:
     "A streaming AI assistant for developers and creators. Ask anything about code, real-time news, technology, and engineering.",
   keywords: ["AI", "Oxie", "assistant", "developer tools", "real-time AI"],
