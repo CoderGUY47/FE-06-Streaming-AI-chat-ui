@@ -2,9 +2,9 @@
 
 <img src="public/images/oxie.png" alt="Oxie AI Logo" width="100" />
 
-# Oxie — AI Assistant
+# Oxie - AI Assistant
 
-**A blazing-fast, streaming AI chat assistant for developers and creators.**  
+**A blazing-fast, streaming AI chat assistant for developers and creators.**
 Built with Next.js 16, React 19, Vercel AI SDK, and Framer Motion.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=flat-square&logo=next.js)](https://nextjs.org)
@@ -18,16 +18,24 @@ Built with Next.js 16, React 19, Vercel AI SDK, and Framer Motion.
 
 ---
 
+## 📸 App Preview
+
+<div align="center">
+  <img src="public/images/Oxie-AI-Assistant.png" alt="Oxie AI Assistant - App Preview" width="100%" style="border-radius: 12px;" />
+</div>
+
+---
+
 ## ✨ Features
 
-- 🤖 **Real-time Streaming Chat** — Token-by-token AI responses powered by the Vercel AI SDK
-- ⚡ **Anthropic Claude Integration** — Claude Agent SDK for deep reasoning and multi-step tasks
-- 🌐 **Web Search & Docs** — Live web access so Oxie answers questions about 2026 and beyond
-- 💻 **Code Streaming** — Syntax-highlighted code blocks with `react-syntax-highlighter`
-- 🎨 **Glassmorphic UI** — Premium dark interface with Framer Motion animations and glow effects
-- 📱 **Fully Responsive** — Works seamlessly on desktop, tablet, and mobile
-- 🔒 **Auth Pages** — Fast-loading static Sign In & Sign Up pages (zero JavaScript bundle)
-- 🗂️ **Modular Architecture** — Clean component separation for easy maintenance
+- 🤖 **Real-time Streaming Chat** - Token-by-token AI responses powered by the Vercel AI SDK
+- ⚡ **Anthropic Claude Integration** - Claude Agent SDK for deep reasoning and multi-step tasks
+- 🌐 **Web Search & Docs** - Live web access so Oxie answers questions about 2026 and beyond
+- 💻 **Code Streaming** - Syntax-highlighted code blocks with `react-syntax-highlighter`
+- 🎨 **Glassmorphic UI** - Premium dark interface with Framer Motion animations and glow effects
+- 📱 **Fully Responsive** - Works seamlessly on desktop, tablet, and mobile
+- 🔒 **Auth Pages** - Fast-loading static Sign In & Sign Up pages (zero JavaScript bundle)
+- 🗂️ **Modular Architecture** - Clean component separation for easy maintenance
 
 ---
 
