@@ -44,7 +44,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
   }, []);
 
   return (
-    <div className={cn("flex gap-3 w-full", isUser ? "flex-row-reverse" : "flex-row")}>
+    <div className={cn("flex gap-3 w-full items-start", isUser ? "flex-row-reverse" : "flex-row")}>
       {/* Avatar with bg */}
       {isUser ? (
         <span className="w-8 h-8 rounded-full bg-slate-900 text-white text-[11px] font-extrabold flex items-center justify-center shrink-0 mt-1 select-none border border-black/15">
@@ -57,7 +57,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
       )}
 
       {/* Content column */}
-      <div className={cn("flex flex-col gap-1.5 max-w-[78%]", isUser ? "items-end" : "items-start")}>
+      <div className={cn("flex flex-col gap-1.5 max-w-[82%]", isUser ? "items-end" : "items-start")}>
         {/* Bubble */}
         <div
           className={cn(
@@ -75,7 +75,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
         </div>
 
         {/* Action bar */}
-        <div className={cn("flex items-center gap-0.5", isUser ? "flex-row-reverse" : "flex-row")}>
+        <div className={cn("flex items-center gap-0.5 w-full", isUser ? "justify-end" : "justify-start")}>
           <button
             className={cn(
               "flex items-center gap-1.5 px-2 py-1 rounded-[4px] text-[11.5px] font-medium transition-colors border cursor-pointer",

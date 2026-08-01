@@ -57,7 +57,7 @@ export default function MessageList({ messages, isLoading }: MessageListProps) {
       aria-label="Chat messages"
       aria-live="polite"
     >
-      <div className="w-[90%] max-w-212.5 mx-auto px-4 flex flex-col gap-7 min-h-full justify-center">
+      <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col gap-6 min-h-full">
         {/* Empty state */}
         {messages.length === 0 && !isLoading && (
           <EmptyState />

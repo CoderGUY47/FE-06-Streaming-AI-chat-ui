@@ -182,7 +182,7 @@ export default function ChatInput({
   const imageFiles = attachedFiles.filter((f) => f.isImage);
 
   return (
-    <div className="w-full max-w-225 mx-auto px-4 pb-6">
+    <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 pb-6">
       {/* Hidden file input for attachment upload */}
       <input
         type="file"
